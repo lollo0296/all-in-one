@@ -161,6 +161,17 @@ It is set to '$DOCKER_SOCKET_PATH'."
         exit 1
     fi
 fi
+if [ -n "$TRUSTED_CACERTS_DIR" ]; then
+    if ! echo "$TRUSTED_CACERTS_DIR" | grep -q "^/" || echo "$TRUSTED_CACERTS_DIR" | grep -q "/$"; then
+        echo "You've set TRUSTED_CACERTS_DIR but not to an allowed value.
+        It should be an absolute path to a directory that starts and ends with '/'"
+        exit 1
+    fi
+    if [ ! -d "$TRUSTED_CACERTS_DIR" ]; then
+        echo "You've set TRUSTED_CACERTS_DIR but the given directory does not exist."
+        exit 1
+    ;
+fi
 
 # Check DNS resolution
 # Prevents issues like https://github.com/nextcloud/all-in-one/discussions/565
