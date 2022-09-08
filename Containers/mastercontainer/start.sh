@@ -167,10 +167,6 @@ if [ -n "$TRUSTED_CACERTS_DIR" ]; then
         It should be an absolute path to a directory that starts and ends with '/'"
         exit 1
     fi
-    if [ ! -d "$TRUSTED_CACERTS_DIR" ]; then
-        echo "You've set TRUSTED_CACERTS_DIR but the given directory does not exist."
-        exit 1
-    ;
 fi
 
 # Check DNS resolution
