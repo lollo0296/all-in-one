@@ -496,6 +496,6 @@ For some applications it might be necessary to enstablish a secured connection t
 
 You can make the Nextcloud container trust any Certification Authority by providing the environmental variable `TRUSTED_CACERTS_DIR` when starting the AIO-mastercontainer. The value of the variables should be set to the absolute path to a directory on the host, which containes one or more Certification Authority's certificate. You should use X.509 certificates, Base64 encoded. (Other formats may work but have not been tested!) All the certificates in the directory will be trusted.
 
-When using `docker run`, the environmental variable can be set with `-e TRUSTED_CACERTS_DIR=/path/to/my/directory/`.
+When using `docker run`, the environmental variable can be set with `-e TRUSTED_CACERTS_DIR=/path/to/my/directory`.
 
-In order for the value to be valid, the path should start and end with `/` and point to an existing **directory**. Pointing the variable directly to a certificate **file** will not work and may also brake things.
+In order for the value to be valid, the path should start with `/` and not end with '/' and point to an existing **directory**. Pointing the variable directly to a certificate **file** will not work and may also brake things.
